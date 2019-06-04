@@ -1,0 +1,184 @@
+{
+  "place_holder": {
+    "format": {
+      "datetime": "yyyy-MM-dd hh:mm:ss",
+      "charset": "utf8"
+    },
+    "ko": {
+      "default": {
+        "on": "설정 O",
+        "off": "설정 X"
+      },
+      "overview": {
+        "version": "클라이언트 버전",
+        "user_account_list": "사용자 계정 목록",
+        "root_sync_folder": "최상위 동기화 폴더 경로",
+        "usb_sync_enable": "이동식 저장매체 백업 옵션 설정 여부"
+      },
+      "sync_file_list": {
+        "server_create_time": "서버 내 생성시각",
+        "server_modified_time": "서버 내 수정시각",
+        "local_create_time": "로컬 내 생성시각",
+        "local_modified_time": "로컬 내 수정시각",
+        "doc_id": "파일/폴더 ID",
+        "inode": "파일시스템 INODE 정보",
+        "volume_serial": "볼륨 시리얼 번호",
+        "path": "파일/폴더 경로",
+        "size": "파일 크기",
+        "md5": "파일 MD5 해시값",
+        "shared": "파일 공유 여부"
+      },
+      "volume_info": {
+        "volume_drive": "볼륨에 할당된 드라이브 문자",
+        "volume_serial": "볼륨 시리얼 번호",
+        "volume_uuid": "볼륨 GUID",
+        "label": "볼륨 이름",
+        "size": "볼륨 크기",
+        "filesystem": "파일시스템 종류"
+      },
+      "external_device_list": {
+        "device_id": "볼륨 GUID",
+        "label": "볼륨 이름",
+        "doc_id": "저장매체 내 최상위 폴더"
+      },
+      "external_device_file_list": {
+        "modified_time": "수정 시각",
+        "doc_id": "파일/폴더 ID",
+        "device_id": "볼륨 GUID",
+        "file_path": "파일/폴더 경로",
+        "size": "파일 크기",
+        "md5": "파일 MD5 해시값"
+      },
+      "sync_log": {
+        "occur_time": "행위 발생 시간",
+        "direction": "행위 방향",
+        "action": "수행 행위",
+        "file": "행위 대상 파일/폴더",
+        "md5": "대상 파일의 MD5 해시값"
+      }
+    },
+    "en": {
+      "default": {
+        "on": "On",
+        "off": "Off"
+      },
+      "overview": {
+        "version": "Client Version",
+        "user_account_list": "User Account List",
+        "root_sync_folder": "Root sync path",
+        "usb_sync_enable": "External device backup option"
+      },
+      "sync_file_list": {
+        "server_create_time": "Create time in server",
+        "server_modified_time": "Modified time in server",
+        "local_create_time": "Create time in local",
+        "local_modified_time": "Modified time in local",
+        "doc_id": "File/Folder ID",
+        "inode": "INODE info in file system",
+        "volume_serial": "volume serial number",
+        "path": "File/Folder path",
+        "size": "File size",
+        "md5": "MD5 value of file",
+        "shared": "is shared"
+      },
+      "volume_info": {
+        "volume_drive": "Drive string",
+        "volume_serial": "Volume serial number",
+        "volume_uuid": "Volume GUID",
+        "label": "Volume label",
+        "size": "Volume size",
+        "filesystem": "File system type"
+      },
+      "external_device_list": {
+        "device_id": "Volume GUID",
+        "label": "Volume label",
+        "doc_id": "Root folder path in device"
+      },
+      "external_device_file_list": {
+        "modified_time": "Modified time",
+        "doc_id": "File/Folder ID",
+        "device_id": "Volume GUID",
+        "file_path": "File/Folder Path",
+        "size": "File size",
+        "md5": "MD5 value of file"
+      },
+      "sync_log": {
+        "occur_time": "Logged Time",
+        "direction": "Direction",
+        "action": "Action",
+        "file": "Target file/folder",
+        "md5": "MD5 value of file"
+      }
+    }
+  },
+
+  "artifacts": {
+    "path": {
+      "db": {
+        "global": "/global.db",
+        "snapshot": "/user_default/snapshot.db",
+        "sync_config": "/user_default/sync_config.db",
+        "device_db": "/user_default/device_db.db"
+      },
+      "log": {
+        "sync_log_log": "/user_default/sync_log.log"
+      }
+    },
+
+    "table": {
+      "global_db": [
+        "username_mapping"
+      ],
+      "snapshot_db": [
+        "cloud_entry",
+        "cloud_relations",
+        "local_entry",
+        "local_relations",
+        "mapping",
+        "volume_info"
+      ],
+      "sync_config_db": [
+        "data"
+      ],
+      "device_db_db": [
+        "device_files",
+        "external_devices"
+      ]
+    },
+
+    "log_msg": {
+      "sync_log_log": {
+        "local_create" : [
+          "Worker successfully completed",
+          "Direction.UPLOAD",
+          "Action.CREATE"
+        ],
+        "local_modify" : [
+          "Worker successfully completed",
+          "Direction.UPLOAD",
+          "Action.MODIFY"
+        ],
+        "local_delete" : [
+          "Worker successfully completed",
+          "Direction.UPLOAD",
+          "Action.DELETE"
+        ],
+        "server_create" : [
+          "Worker successfully completed",
+          "Direction.DOWNLOAD",
+          "Action.CREATE"
+        ],
+        "server_modify" : [
+          "Worker successfully completed",
+          "Direction.DOWNLOAD",
+          "Action.CREATE"
+        ],
+        "server_delete" : [
+          "Worker successfully completed",
+          "Direction.DOWNLOAD",
+          "Action.DELETE"
+        ]
+      }
+    }
+  }
+}
