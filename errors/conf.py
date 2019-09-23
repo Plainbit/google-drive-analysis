@@ -1,0 +1,2 @@
+class ConfFilePathError(Exception):
+    pass

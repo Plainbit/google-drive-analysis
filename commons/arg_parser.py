@@ -1,6 +1,8 @@
 import argparse
 import os
 
+arg = None
+
 
 class ArgParser:
 
@@ -12,7 +14,7 @@ class ArgParser:
         self._args = self._arg_parser.parse_args()
 
     def _set_arguments(self):
-        _input_options = self._arg_parser.add_mutually_exclusive_group()
+        _input_options = self._arg_parser.add_argument_group()
         _output_options = self._arg_parser.add_mutually_exclusive_group()
 
         _input_options.required = True
@@ -28,11 +30,11 @@ class ArgParser:
         )
 
         _input_options.add_argument(
-            '--lang',
+            '-l', '--lang',
             dest='lang',
             action='store',
             type=str,
-            default='ko',
+            default='en',
             help="Language option for output column ('ko' or 'en')"
         )
 
@@ -45,7 +47,10 @@ class ArgParser:
             help='Output path to want to store'
         )
 
-    @property
+    @staticmethod
+    def get_config_path(self):
+        return './config.json'
+
     def get_input_dir_path(self):
         if hasattr(self._args, 'input_dir_path'):
             if self._args.input_dir_path is not None:
@@ -53,9 +58,25 @@ class ArgParser:
                     return self._args.input_dir_path
         return None
 
-    @property
+    def get_output_lang(self):
+        if hasattr(self._args, 'lang'):
+            if self._args.lang is not None:
+                if os.path.isdir(self._args.input_dir_path):
+                    return self._args.input_dir_path
+        return None
+
     def get_output_csv_path(self):
         if hasattr(self._args, 'csv_path'):
             if self._args.csv_path is not None:
                 return self._args.csv_path
         return None
+
+
+def get_arg():
+    global arg
+
+    if arg:
+        return arg
+    else:
+        arg = ArgParser()
+        return arg

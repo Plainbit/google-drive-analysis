@@ -1,5 +1,8 @@
 import json
 from commons.arg_parser import ArgParser
+from errors.conf import ConfFilePathError
+
+conf = None
 
 
 class ConfigParser:
@@ -48,3 +51,17 @@ class ConfigParser:
     @property
     def device_db_db_table_list(self):
         return None
+
+
+def get_conf(config_path=None):
+    global conf
+
+    if conf:
+        return conf
+
+    elif config_path is not None:
+        conf = ConfigParser(config_path)
+        return conf
+
+    else:
+        raise ConfFilePathError()

@@ -1,5 +1,5 @@
-from commons.config_parser import ConfigParser
-from commons.arg_parser import ArgParser
+from commons.config_parser import get_conf
+from commons.arg_parser import get_arg
 from commons import output
 
 
@@ -8,8 +8,8 @@ class Main:
     def __init__(self):
 
         # prepare some modules
-        self._arg = ArgParser()
-        self._conf = ConfigParser('./config.json')
+        _arg = get_arg()
+        _conf = get_conf(_arg.get_config_path())
 
         # step 1. get information about login
 
